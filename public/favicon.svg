@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="National Driving School">
+  <rect width="32" height="32" rx="7" fill="#0B1F3A"/>
+  <path fill="#F4EFE6" d="M3.5 19.2h3l2.4-3.8h4.4l2.1-3.6h6.6l2.2 3.6h4.3v3.8H3.5z"/>
+  <circle cx="11.2" cy="19.4" r="2.35" fill="#142033"/>
+  <circle cx="22.2" cy="19.4" r="2.35" fill="#142033"/>
+  <rect x="26.2" y="14.6" width="2.4" height="2.2" fill="#F0B429"/>
+  <rect width="32" height="1.7" y="23.1" fill="#F0B429"/>
+  <rect width="32" height="7.2" y="24.8" fill="#E10600"/>
+</svg>
