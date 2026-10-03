@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test server/health.test.mjs",
+    "db:migrate": "node scripts/apply-migrations.mjs"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.2.0",
     "lucide-react": "^1.49.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

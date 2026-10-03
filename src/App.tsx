@@ -9,6 +9,7 @@ import { Enroll } from "./pages/Enroll";
 import { Desk } from "./pages/Desk";
 import { Office } from "./pages/Office";
 import { Invoice } from "./pages/Invoice";
+import { Privacy } from "./pages/Privacy";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="desk" element={<Desk />} />
           <Route path="office" element={<Office />} />
           <Route path="invoice/:id" element={<Invoice />} />
+          <Route path="privacy" element={<Privacy />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

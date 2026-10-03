@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Menu, Phone, X } from "lucide-react";
 import { school } from "../data/catalog";
+import { privacyCopy } from "../data/privacy";
 import { useI18n } from "../hooks/useI18n";
 import { Logo } from "./ui";
 
@@ -131,6 +132,7 @@ export function Layout() {
             </Link>
             <Link to="/desk">{t.nav.desk}</Link>
             <Link to="/visit">{t.nav.visit}</Link>
+            <Link to="/privacy">{privacyCopy[lang].linkLabel}</Link>
             <a href="https://saaq.gouv.qc.ca/en/drivers-licences/obtaining-licence/passenger-vehicle-class-5">
               SAAQ · Class 5
             </a>
