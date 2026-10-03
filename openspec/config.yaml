@@ -1,0 +1,20 @@
+schema: spec-driven
+
+context: |
+  Montreal Class 5 school (École de conduite National). Near-zero cost: Vercel Hobby, Neon Postgres (not Supabase), Resend, Stripe fees only, domain is the only fixed cost.
+  Privacy and security are the top priority. Student and staff data is sensitive. Least privilege. No secrets in git. No service-role keys in the browser. DATABASE_URL is server-only.
+  Database access is server-side parameterized queries only. Students see only their own rows. Staff roles are explicit. Do not store card numbers. Payments via Stripe. Audit important record changes.
+  Quebec Law 25: consent, purpose limitation, retention, access and deletion. Student-facing legal copy is bilingual EN/FR. GST/QST on real invoices.
+  PRDs in docs/plans are inputs to OpenSpec. Every feature, including behaviour-changing bugfixes, goes proposal → spec deltas with scenarios → tasks → implementation → verification. Do not implement from a PRD directly.
+  The Vite demo still uses localStorage. Do not treat it as the system of record.
+
+rules:
+  proposal:
+    - State what is out of scope
+    - Do not expand a change into a later phase from docs/plans
+  specs:
+    - Every requirement has at least one scenario
+    - Use SHALL or MUST
+    - Include privacy or access constraints when the capability touches student or payment data
+  tasks:
+    - Mark a task done only after it is actually implemented and checked

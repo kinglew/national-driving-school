@@ -1,0 +1,4 @@
+schema: spec-driven
+created: 2026-10-03
+goal: Server-only database access and a bilingual Law 25 privacy draft, without
+  moving the demo desk off localStorage.
