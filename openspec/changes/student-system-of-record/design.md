@@ -37,7 +37,7 @@
 11. **Failures.** Unconfigured database: 503, no query. Driver errors: log the error name only, body `database_down` or the same unconfigured style without the message. `Cache-Control: no-store` on these routes.
 12. **No new secret.** This phase does not add `STAFF_GATE_TOKEN`. Until mail exists, staff sessions are created only by redeeming a challenge that was stored out of band.
 
-13. **One student function besides health.** Vercel Hobby allows 12 serverless functions. `api/[...slug].js` dispatches every student route so production stays under that cap. The public paths do not change.
+13. **One student function besides health.** Vercel Hobby allows 12 serverless functions, and a root catch-all only matches one segment. `api/[...slug].js` serves one-segment routes. `vercel.json` rewrites `/api/:a/:b` to `/api/nested?a=:a&b=:b` on that same function. Public paths do not change.
 
 ## Risks / Trade-offs
 

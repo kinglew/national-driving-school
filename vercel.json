@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/api/:a/:b", "destination": "/api/nested?a=:a&b=:b" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }

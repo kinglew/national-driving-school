@@ -64,8 +64,21 @@ export function recordsPath(req) {
   const slug = req?.query?.slug;
   const parts = Array.isArray(slug) ? slug : typeof slug === "string" ? [slug] : [];
   const raw = typeof req?.url === "string" ? req.url : "";
-  const query = raw.includes("?") ? raw.slice(raw.indexOf("?")) : "";
-  if (parts.length > 0) return `/api/${parts.join("/")}${query}`;
+  const qIndex = raw.indexOf("?");
+  const search = new URLSearchParams(qIndex === -1 ? "" : raw.slice(qIndex + 1));
+  if (parts.length === 1 && parts[0] === "nested") {
+    const a = search.get("a") || "";
+    const b = search.get("b") || "";
+    if (!/^[a-z0-9-]+$/.test(a) || !/^[a-z0-9-]+$/.test(b)) return "/api/invalid";
+    search.delete("a");
+    search.delete("b");
+    const qs = search.toString();
+    return `/api/${a}/${b}${qs ? `?${qs}` : ""}`;
+  }
+  if (parts.length > 0) {
+    const qs = qIndex === -1 ? "" : raw.slice(qIndex);
+    return `/api/${parts.join("/")}${qs}`;
+  }
   if (raw.startsWith("/api/")) return raw;
   return raw || "/api";
 }

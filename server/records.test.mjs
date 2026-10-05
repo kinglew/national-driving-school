@@ -339,4 +339,14 @@ describe("recordsPath", () => {
       "/api/exports/students?purpose=backup",
     );
   });
+
+  it("rebuilds a two-segment rewrite without dropping the query", () => {
+    assert.equal(
+      recordsPath({
+        query: { slug: "nested" },
+        url: "/api/nested?a=exports&b=students&purpose=backup",
+      }),
+      "/api/exports/students?purpose=backup",
+    );
+  });
 });
