@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { describe, it } from "node:test";
+import { recordsPath } from "./http.mjs";
 import { hashToken, handleRecords } from "./records.mjs";
 
 const STUDENT = "11111111-1111-4111-8111-111111111111";
@@ -328,5 +329,14 @@ describe("client boundary", () => {
     assert.equal(store.includes("firstName"), false);
     const vercel = readFileSync(new URL("../vercel.json", import.meta.url), "utf8");
     assert.match(vercel, /\/\(\(\?!api\/\)\.\*\)/);
+  });
+});
+
+describe("recordsPath", () => {
+  it("builds the student route from the Vercel slug", () => {
+    assert.equal(
+      recordsPath({ query: { slug: ["exports", "students"] }, url: "/api/exports/students?purpose=backup" }),
+      "/api/exports/students?purpose=backup",
+    );
   });
 });

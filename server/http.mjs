@@ -59,3 +59,13 @@ export function createApiHandler(apiPath) {
     }
   };
 }
+
+export function recordsPath(req) {
+  const slug = req?.query?.slug;
+  const parts = Array.isArray(slug) ? slug : typeof slug === "string" ? [slug] : [];
+  const raw = typeof req?.url === "string" ? req.url : "";
+  const query = raw.includes("?") ? raw.slice(raw.indexOf("?")) : "";
+  if (parts.length > 0) return `/api/${parts.join("/")}${query}`;
+  if (raw.startsWith("/api/")) return raw;
+  return raw || "/api";
+}
