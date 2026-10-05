@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "node --test server/health.test.mjs",
+    "test": "node --test server/health.test.mjs server/records.test.mjs",
     "db:migrate": "node scripts/apply-migrations.mjs"
   },
   "dependencies": {
